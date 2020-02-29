@@ -1,6 +1,6 @@
 {
   "name": "ngx-ssr-exclude",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "delete-dist": "del dist",
     "lib:build": "ng build ngx-ssr-exclude --prod",
