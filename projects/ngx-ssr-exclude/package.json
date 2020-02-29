@@ -1,0 +1,31 @@
+{
+  "name": "ngx-ssr-exclude",
+  "version": "1.0.0",
+  "description": "ngx-ssr-exclude library provides a structural directive to exclude certain elements or components from Angular Server-side Rendering (SSR) which allows you to push smaller html pages to the users resulting in faster load times and happy users. It can also save precious and costly compute time of the server. It works with both dynamic SSR as well as pre-rendering.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SachinShekhar/ngx-ssr-exclude",
+    "directory": "projects/ss-ngrx-router-store"
+  },
+  "bugs": {
+    "url": "https://github.com/SachinShekhar/ngx-ssr-exclude/issues"
+  },
+  "homepage": "https://sachinshekhar.github.io/ngx-ssr-exclude/",
+  "author": "Sachin Shekhar (https://sachinshekhar.com)",
+  "keywords": [
+    "angular",
+    "angular-universal",
+    "angular-ssr",
+    "angular-server-side-rendering",
+    "ngx-ssr-exclude",
+    "express",
+    "ssr",
+    "server-side-rendering"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": ">=6.1.10",
+    "@angular/core": ">=6.1.10",
+    "tslib": "^1.10.0"
+  }
+}

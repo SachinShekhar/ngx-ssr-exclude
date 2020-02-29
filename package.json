@@ -1,13 +1,19 @@
 {
   "name": "ngx-ssr-exclude",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "delete-dist": "del dist",
+    "lib:build": "ng build ngx-ssr-exclude --prod",
+    "lib:copy-assets": "copyfiles *.md LICENSE dist/ss-ngrx-router-store",
+    "lib:publish": "npm run lib:copy-assets && npm publish dist/ngx-ssr-exclude",
+    "demo:dev:ssr": "ng run demo:serve-ssr",
+    "demo:serve:ssr": "node dist/demo/server/main.js",
+    "demo:build:ssr": "ng build --prod && ng run demo:server:production",
+    "demo:prerender": "npm run delete-dist && npm run lib:build && ng run demo:prerender",
+    "gh-pages:delete-files": "del projects assets angular.json tsconfig.json '*.html' '*.js' '*.js.map' '*.css' '*.css.map' '*.ico' '*.md' '*.txt'",
+    "gh-pages:copy-files": "copyfiles -u 3 dist/demo/browser/*.* dist/demo/browser/assets/*.* ./",
+    "gh-pages:create-404": "node -e \"require('fs').copyFile('index.html', '404.html', (err) => { if (err) throw err; console.log('Copied!');})\"",
+    "gh-pages:build": "npm run gh-pages:delete-files && npm run gh-pages:copy-files && npm run gh-pages:create-404"
   },
   "private": true,
   "dependencies": {
@@ -18,16 +24,26 @@
     "@angular/forms": "~9.0.0",
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
+    "@angular/platform-server": "~9.0.0",
     "@angular/router": "~9.0.0",
+    "@nguniversal/express-engine": "^9.0.1",
+    "express": "^4.15.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.900.4",
+    "@angular-devkit/build-ng-packagr": "~0.900.4",
     "@angular/cli": "~9.0.1",
     "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
+    "@nguniversal/builders": "^9.0.1",
+    "@types/express": "^4.17.0",
     "@types/node": "^12.11.1",
+    "copyfiles": "^2.2.0",
+    "del-cli": "^3.0.0",
+    "ng-packagr": "^9.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
