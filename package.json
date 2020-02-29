@@ -4,7 +4,7 @@
   "scripts": {
     "delete-dist": "del dist",
     "lib:build": "ng build ngx-ssr-exclude --prod",
-    "lib:copy-assets": "copyfiles *.md LICENSE dist/ss-ngrx-router-store",
+    "lib:copy-assets": "copyfiles *.md LICENSE dist/ngx-ssr-exclude",
     "lib:publish": "npm run lib:copy-assets && npm publish dist/ngx-ssr-exclude",
     "demo:dev:ssr": "ng run demo:serve-ssr",
     "demo:serve:ssr": "node dist/demo/server/main.js",
