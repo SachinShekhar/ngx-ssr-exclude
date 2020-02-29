@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "delete-dist": "del dist",
+    "lib:build": "ng build ngx-ssr-exclude --prod",
     "demo:dev:ssr": "ng run demo:serve-ssr",
     "demo:serve:ssr": "node dist/demo/server/main.js",
     "demo:build:ssr": "ng build --prod && ng run demo:server:production",
     "demo:prerender": "npm run delete-dist && npm run lib:build && ng run demo:prerender",
-    "lib:build": "ng build ngx-ssr-exclude --prod"
+    "gh-pages:delete-files": "del projects assets angular.json tsconfig.json '*.html' '*.js' '*.js.map' '*.css' '*.css.map' '*.ico' '*.md' '*.txt'",
+    "gh-pages:copy-files": "copyfiles -u 3 dist/demo/browser/*.* dist/demo/browser/assets/*.* ./",
+    "gh-pages:create-404": "node -e \"require('fs').copyFile('index.html', '404.html', (err) => { if (err) throw err; console.log('Copied!');})\"",
+    "gh-pages:build": "npm run gh-pages:delete-files && npm run gh-pages:copy-files && npm run gh-pages:create-404"
   },
   "private": true,
   "dependencies": {
