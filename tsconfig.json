@@ -22,7 +22,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-ssr-exclude": [
+        "dist/ngx-ssr-exclude/ngx-ssr-exclude",
+        "dist/ngx-ssr-exclude"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
