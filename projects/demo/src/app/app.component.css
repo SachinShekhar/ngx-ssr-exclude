@@ -13,3 +13,9 @@ h1 {
 p {
   font-size: larger;
 }
+
+mat-card {
+  max-width: 400px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
