@@ -33,16 +33,40 @@
   </a>
 </div>
 
-<p>
-  This line is rendered on the server. Everything below is rendered in the
-  browser.
-</p>
+<mat-card *browserExclude>
+  <mat-card-title>
+    Rendered on Server
+  </mat-card-title>
+  <mat-card-subtitle>
+    This component is rendered on the server..
+  </mat-card-subtitle>
+  <mat-card-content>
+    This component will be displayed to the users even before Angular runtime is
+    bootstrapped in the browser. This component uses *browserExclude directive.
+  </mat-card-content>
+</mat-card>
 
-<ng-container *ssrExclude>
-  <p>
-    If you can't perceive the difference, disable the cache and throttle the
-    speed to 2G or Slow 3G using your browser's dev tools.
-  </p>
-  <img src="./assets/chrome-throttle-speed.png" />
-  <p>You can also try performance profiling.</p>
-</ng-container>
+<mat-card *ssrExclude>
+  <mat-card-title>
+    Rendered in Browser
+  </mat-card-title>
+  <mat-card-subtitle>
+    This component is rendered in the browser by Angular runtime..
+  </mat-card-subtitle>
+  <mat-card-content>
+    This component will be displayed to the users after Angular runtime gets
+    bootstrapped in the browser. The server doesn't process it. This component
+    uses *browserExclude directive.
+  </mat-card-content>
+</mat-card>
+
+<p>
+  <strong>The above card case study:</strong> First server rendered version of
+  the card component is displayed. And, when Angular runtime gets bootstrapped
+  in the browser, it is replaced with browser rendered version. If you can't
+  perceive the difference (because this demo is very small against your fast
+  internet), disable the cache and throttle the speed to 2G or Slow 3G using
+  your browser's dev tools.
+</p>
+<img src="./assets/chrome-throttle-speed.png" />
+<p>You can also try performance profiling.</p>
